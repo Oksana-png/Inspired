@@ -1,0 +1,71 @@
+.product {
+  &__image {
+    margin-bottom: 16px;
+    height: 370px;
+    object-fit: cover;
+    @include tablet {
+      margin-bottom: 10px;
+      height: 185px;
+    }
+  }
+  &__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 16px;
+    @include tablet {
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 10px;
+    }
+  }
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+      @include tablet {
+        margin-bottom: 7px;
+      }
+  }
+  &__price {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    @include tablet {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+  &__btn-favorite {
+    width: 24px;
+    height: 24px;
+    background-image: url('../img/heart.svg');
+    background-position: center;
+    
+  } 
+  &__color-list {
+    display: flex;
+    align-items: center;
+  }
+}
+.color {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 2.4px;
+    left: 2.4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #B67C7C;
+  }
+  &--check {
+    border: 0.4px solid #929292;
+  }
+}

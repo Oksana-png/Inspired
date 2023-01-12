@@ -1,0 +1,25 @@
+.footer {
+  margin-bottom: 24px;
+  @include tablet {
+    margin-bottom: 16px;
+  }
+  &__container {
+    border-top: 1px solid #DCDCDC;
+    padding-top: 51px;
+    @include laptop {
+      padding-top: 30px;
+    }
+    @include tablet {
+      padding-top: 24px;
+    }
+    @include mobile {
+      padding-top: 16px;
+    }
+  } 
+  &__title {
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+}
