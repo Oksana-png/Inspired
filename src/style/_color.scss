@@ -1,0 +1,30 @@
+.color {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    inset: 3px;
+    background-color: #B67C7C;
+  }
+
+  &--check {
+    outline: 0.4px solid #929292;
+  }
+
+  &--red::after {
+    background-color: #FF0000;
+  }
+
+  &--white::after {
+    background-color: #B67C7C;
+  }
+
+  &--black::after {
+    background-color: $main-color;
+  }
+}
