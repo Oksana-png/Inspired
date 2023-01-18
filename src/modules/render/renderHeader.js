@@ -98,30 +98,5 @@ export const renderHeader = () => {
   header.append(container);
 
 
-  // header.innerHTML = `
-  //   <div class="container header__container">
-      
-    
-  //     <div class="header__navigation">
-  //       <ul class="header__nav-list">
-  //         <li class="header__nav-item">
-  //           <button class="header__link">
-              
-  //           </button>
-  //         </li>
-  //         <li class="header__nav-item">
-  //           <a href="#" class="header__link">
-              
-  //           </a>
-  //         </li>
-  //         <li class="header__nav-item">
-  //           <a href="#" class="header__link">
-              
-  //           </a>
-  //         </li>
-  //       </ul>
-  //     </div>
-  //   </div>
-  // `;
 }
 
