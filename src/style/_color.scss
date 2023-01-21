@@ -16,15 +16,4 @@
     outline: 0.4px solid #929292;
   }
 
-  &--red::after {
-    background-color: #FF0000;
-  }
-
-  &--white::after {
-    background-color: #B67C7C;
-  }
-
-  &--black::after {
-    background-color: $main-color;
-  }
 }
