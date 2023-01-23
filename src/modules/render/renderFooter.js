@@ -1,4 +1,5 @@
 import { createElement } from "../createElement";
+import { DATA } from '../const';
 
 
 const iconVK = `
@@ -55,7 +56,6 @@ const itemCopyright = createElement('div',
     `,
   },
 );
-
 const itemContacts = createElement('div',
   {
     className: 'footer__item footer__item--contacts footer-contacts',
@@ -93,7 +93,7 @@ const listSocial = createElement('ul',
       )
     ],
   }
-)
+);
 const itemSocial = createElement('div',
   {
     className: 'footer__item footer__item--social footer-social',
@@ -112,29 +112,91 @@ const container = createElement('div',
     className: 'container',
   }
 );
-const footerContainer = createElement('div',
-  {
-    className: 'footer__container',
-  },
-  {
-    parent: container,
-    appends: [
-      itemSocial,
-      itemContacts,
-      itemCopyright,
-      itemDevelopment,
-    ]
-  }
-);
 
+// ! НАЧАЛО ФУНКЦИИ
 
 export const renderFooter = () => {
   const footer = document.querySelector('.footer');
+  container.textContent = '';
+  
+  // render категорий
+  const itemCategory = createElement('div',
+    {
+      className: 'footer__item footer__item--category footer-category',
+      innerHTML: `<h2 class="footer__title footer-category__title">Каталог</h2>`
+    },
+  );
+  const listCategory = createElement('ul',
+    {
+      className: 'footer-category__list',
+    },
+    {
+      parent: itemCategory,
+    }
+  );
+
+  
+  for (const category in DATA.navigation){
+    const listElems = DATA.navigation[category].list.map((item) => {
+      return createElement('li',
+        {
+          className: 'footer-category__subitem',
+          innerHTML: `
+            <a href="#/${category}/${item.slug}" class="footer__link">${item.title}</a>
+          `,
+        },
+      );
+    });
+    console.log('listElems', listElems);
+    
+    createElement('li',
+      {
+        className: 'footer-category__item',
+        innerHTML: `
+          <h3 class="footer-category__subtitle">
+            <a href="#/${category}" class="footer__link">
+              ${DATA.navigation[category].title}
+            </a>
+          </h3>
+        `
+      },
+      {
+        parent: listCategory,
+        append: createElement('ul',
+          {
+            className: 'footer-category__sublist',
+          },
+          {
+            appends: listElems,
+          }
+        ),
+      }
+    )
+  };
+  
+  const footerContainer = createElement('div',
+    {
+      className: 'footer__container',
+    },
+    {
+      parent: container,
+      appends: [
+        itemCategory,
+        itemSocial,
+        itemContacts,
+        itemCopyright,
+        itemDevelopment,
+      ],
+    }
+  );
+
   footer.append(container);
 
   const art = `
     <div class="container">
       <div class="footer__container">
+
+
         <div class="footer__item footer__item--category footer-category">
           <h2 class="footer__title footer-category__title">Каталог</h2>
           <ul class="footer-category__list">
@@ -182,11 +244,11 @@ export const renderFooter = () => {
                 <li class="footer-category__subitem">
                   <a href="#" class="footer__link">Термобелье</a>
                 </li>
-
               </ul>
             </li>
           </ul>
         </div>
+
 
         <div class="footer__item footer__item--social footer-social">
           <h2 class="footer__title footer-social__title">Связаться с нами</h2>

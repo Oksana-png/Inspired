@@ -82,5 +82,5 @@ export const renderNavigation = (gender) => {
       parent: container,
       appends: categoryElems,
     }
-  )
+  );
 };
